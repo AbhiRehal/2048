@@ -1,9 +1,9 @@
 'use strict';
 
-let gameBoard = [[0, 1, 2, 3],
-                [4, 5, 6, 7],
-                [8, 9, 10, 11],
-                [12, 13, 14, 15]];
+let gameBoard = [[4, 2, 2, 2],
+                [2, 2, 2, 2],
+                [4, 4, 0, 4],
+                [2, 2, 0, 0]];
 
 let startingPosition = Math.trunc(Math.random() * 15) + 1;
 let randomNumberX = 0, randomNumberY = 0;
@@ -17,13 +17,20 @@ function randomSpawnNumber(){
 }
 
 function addRightwards(arrayToAdd){
-    for (let i = 0; i < 4; i++){
-        for (let j = 3; j >= 0; j--){
-            let rightNumber, leftNumber;
-            rightNumber = arrayToAdd[i][j];
-            leftNumber = arrayToAdd[i][j-1];
-        }
-    }
+   for (let i = 0; i < 4; i++){
+       let tempArray = arrayToAdd[i].filter(num => num > 0);
+       while (tempArray.length < 4){
+           tempArray.unshift(0);
+       }
+       for (let j = 3; j >= 1; j--){
+           if (tempArray[j] === tempArray[j-1]){
+               tempArray[j] = tempArray[j] + tempArray[j-1]
+               tempArray.splice(j-1,1);
+               tempArray.unshift(0)
+           }
+       }
+       arrayToAdd[i] = tempArray;
+   }
 }
 
 function rotateGrid(arrayToRotate){
@@ -47,22 +54,24 @@ document.addEventListener("keydown", move);
 function move(e){
     if (e.code === "ArrowUp"){
         rotateGrid(gameBoard);
-        // add
+        addRightwards(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
     } else if (e.code === "ArrowDown"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
-        // add
+        addRightwards(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
     } else if (e.code === "ArrowLeft"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
-        // add
+        addRightwards(gameBoard);
         rotateGrid(gameBoard);
+    } else if (e.code === "ArrowRight"){
+        addRightwards(gameBoard);
     } else {
         console.log("Invalid key");
     }
