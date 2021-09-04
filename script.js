@@ -1,19 +1,31 @@
 'use strict';
 
-let gameBoard = [[4, 2, 2, 2],
-                [2, 2, 2, 2],
-                [4, 4, 0, 4],
-                [2, 2, 0, 0]];
-
-let startingPosition = Math.trunc(Math.random() * 15) + 1;
+document.getElementsByClassName("box1").move = "black"
+let game = document.getElementsByClassName("grid");
 let randomNumberX = 0, randomNumberY = 0;
 
-document.getElementsByClassName("box1").move = "black"
+let gameBoard = [[0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]];
+
+randomSpawnNumber()
+randomSpawnNumber()
+console.log(gameBoard);
 
 function randomSpawnNumber(){
     randomNumberX = Math.trunc(Math.random() * 4);
     randomNumberY = Math.trunc(Math.random() * 4);
-    gameBoard[randomNumberX][randomNumberY] = `X`;
+    while (gameBoard[randomNumberX][randomNumberY] !== 0){
+        randomNumberX = Math.trunc(Math.random() * 4);
+        randomNumberY = Math.trunc(Math.random() * 4);
+    }
+    let spawn4 = Math.random();
+    if (spawn4 < 0.1){
+        gameBoard[randomNumberX][randomNumberY] = 4;
+    } else {
+        gameBoard[randomNumberX][randomNumberY] = 2;
+    }
 }
 
 function addRightwards(arrayToAdd){
@@ -55,29 +67,35 @@ function move(e){
     if (e.code === "ArrowUp"){
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
+        console.log("Gameboard is");
+        console.log(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
+        randomSpawnNumber();
     } else if (e.code === "ArrowDown"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
+        randomSpawnNumber();
     } else if (e.code === "ArrowLeft"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
         rotateGrid(gameBoard);
+        randomSpawnNumber();
     } else if (e.code === "ArrowRight"){
         addRightwards(gameBoard);
+        randomSpawnNumber();
     } else {
         console.log("Invalid key");
     }
     console.log(gameBoard);
 }
 
-document.querySelector(".grid").addEventListener("click", function(){
+document.querySelector(".grid-container").addEventListener("click", function(){
     console.log("Clicked the grid bruh");
 });
