@@ -1,6 +1,7 @@
 'use strict';
 
 document.getElementsByClassName("box1").move = "black"
+
 let game = document.getElementsByClassName("grid");
 let randomNumberX = 0, randomNumberY = 0;
 
@@ -11,7 +12,8 @@ let gameBoard = [[0, 0, 0, 0],
 
 randomSpawnNumber()
 randomSpawnNumber()
-console.log(gameBoard);
+
+updateTiles();
 
 function randomSpawnNumber(){
     randomNumberX = Math.trunc(Math.random() * 4);
@@ -93,9 +95,28 @@ function move(e){
     } else {
         console.log("Invalid key");
     }
-    console.log(gameBoard);
+    updateTiles();
 }
 
 document.querySelector(".grid-container").addEventListener("click", function(){
     console.log("Clicked the grid bruh");
 });
+
+function updateTiles(){
+    document.getElementById("grid-item0").innerHTML = gameBoard[0][0];
+    document.getElementById("grid-item1").innerHTML = gameBoard[0][1];
+    document.getElementById("grid-item2").innerHTML = gameBoard[0][2];
+    document.getElementById("grid-item3").innerHTML = gameBoard[0][3];
+    document.getElementById("grid-item4").innerHTML = gameBoard[1][0];
+    document.getElementById("grid-item5").innerHTML = gameBoard[1][1];
+    document.getElementById("grid-item6").innerHTML = gameBoard[1][2];
+    document.getElementById("grid-item7").innerHTML = gameBoard[1][3];
+    document.getElementById("grid-item8").innerHTML = gameBoard[2][0];
+    document.getElementById("grid-item9").innerHTML = gameBoard[2][1];
+    document.getElementById("grid-item10").innerHTML = gameBoard[2][2];
+    document.getElementById("grid-item11").innerHTML = gameBoard[2][3];
+    document.getElementById("grid-item12").innerHTML = gameBoard[3][0];
+    document.getElementById("grid-item13").innerHTML = gameBoard[3][1];
+    document.getElementById("grid-item14").innerHTML = gameBoard[3][2];
+    document.getElementById("grid-item15").innerHTML = gameBoard[3][3];
+}
