@@ -16,17 +16,28 @@ randomSpawnNumber()
 updateTiles();
 
 function randomSpawnNumber(){
-    randomNumberX = Math.trunc(Math.random() * 4);
-    randomNumberY = Math.trunc(Math.random() * 4);
-    while (gameBoard[randomNumberX][randomNumberY] !== 0){
+    let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]]
+    let flag = 1;
+    for (let i = 0; i < temp.length; i++){
+        if (temp[i] === 0){
+            break;
+        } else if (temp[15] !== 0 && i === 15){
+            flag = 0;
+        }
+    }
+    if (flag){
         randomNumberX = Math.trunc(Math.random() * 4);
         randomNumberY = Math.trunc(Math.random() * 4);
-    }
-    let spawn4 = Math.random();
-    if (spawn4 < 0.1){
-        gameBoard[randomNumberX][randomNumberY] = 4;
-    } else {
-        gameBoard[randomNumberX][randomNumberY] = 2;
+        while (gameBoard[randomNumberX][randomNumberY] !== 0){
+            randomNumberX = Math.trunc(Math.random() * 4);
+            randomNumberY = Math.trunc(Math.random() * 4);
+        }
+        let spawn4 = Math.random();
+        if (spawn4 < 0.1){
+            gameBoard[randomNumberX][randomNumberY] = 4;
+        } else {
+            gameBoard[randomNumberX][randomNumberY] = 2;
+        }
     }
 }
 
@@ -78,15 +89,15 @@ function move(e){
     } else if (e.code === "ArrowDown"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
-        addRightwards(gameBoard);
         rotateGrid(gameBoard);
+        addRightwards(gameBoard);
         rotateGrid(gameBoard);
         randomSpawnNumber();
     } else if (e.code === "ArrowLeft"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
-        rotateGrid(gameBoard);
         addRightwards(gameBoard);
+        rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         randomSpawnNumber();
     } else if (e.code === "ArrowRight"){
