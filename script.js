@@ -13,6 +13,9 @@ let gameBoard = [[0, 0, 0, 0],
 randomSpawnNumber()
 randomSpawnNumber()
 
+gameOver();
+console.log(gameBoard);
+
 updateTiles();
 
 function randomSpawnNumber(){
@@ -77,11 +80,10 @@ function rotateGrid(arrayToRotate){
 document.addEventListener("keydown", move);
 
 function move(e){
+    // gameOver();
     if (e.code === "ArrowUp"){
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
-        console.log("Gameboard is");
-        console.log(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
@@ -107,11 +109,45 @@ function move(e){
         console.log("Invalid key");
     }
     updateTiles();
+    
 }
 
 document.querySelector(".grid-container").addEventListener("click", function(){
     console.log("Clicked the grid bruh");
 });
+
+function gameOver(){
+    let temp1 = [...gameBoard];
+    let temp2 = [...gameBoard];
+    let temp3 = [...gameBoard];
+    let temp4 = [...gameBoard];
+    let temp5 = [...gameBoard];
+    // checks up
+    rotateGrid(temp2);
+    addRightwards(temp2);
+    rotateGrid(temp2);
+    rotateGrid(temp2);
+    rotateGrid(temp2);
+    // checks down
+    rotateGrid(temp3);
+    rotateGrid(temp3);
+    rotateGrid(temp3);
+    addRightwards(temp3);
+    rotateGrid(temp3);
+    // checks left
+    rotateGrid(temp4);
+    rotateGrid(temp4);
+    addRightwards(temp4);
+    rotateGrid(temp4);
+    rotateGrid(temp4);
+    // checks right
+    addRightwards(temp5);
+    if (temp1 ===  temp2 && temp1 === temp3 && temp1 === temp4 && temp1 === temp5){
+        console.log("GAME OVER");
+    } else {
+        console.log("GAME NOT OVER");
+    }
+}
 
 function updateTiles(){
     let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
