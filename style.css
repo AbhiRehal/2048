@@ -1,6 +1,7 @@
 .grid-container{
     display: inline-grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px;
     background-color: black;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
@@ -8,25 +9,11 @@
     border-radius: 10px;
 }
 
-
-.box1{
-    display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 8px;
-    
-    width: 100px;
-    height: 100px;
-    background-color: hotpink;
-    padding: 0px;
-    margin: 0px;
-}
-
 body{
     background-color: #faf8ef;
 }
 
-#grid-item0{
+.tile-0{
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -35,8 +22,8 @@ body{
     border-radius: 5px;
 }
 
-#grid-item1{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-2{
+    background-color: #eee4da;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -44,8 +31,8 @@ body{
     border-radius: 5px;
 }
 
-#grid-item2{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-4{
+    background-color: #eee1c9;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -53,8 +40,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item3{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-8{
+    color: white;
+    background-color: #f3b27a;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -62,8 +50,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item4{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-16{
+    color: white;
+    background-color: #f69664;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -71,8 +60,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item5{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-32{
+    color: white;
+    background-color: #f77c5f;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -80,8 +70,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item6{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-64{
+    color: white;
+    background-color: #f75f3b;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -89,8 +80,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item7{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-128{
+    color: white;
+    background-color: #edd073;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -98,8 +90,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item8{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-256{
+    color: white;
+    background-color: #edd073;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -107,8 +100,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item9{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-512{
+    color: white;
+    background-color: #edc950;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -116,8 +110,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item10{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-1024{
+    color: white;
+    background-color: #edc950;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -125,44 +120,9 @@ body{
     border-radius: 5px;
 }
 
-#grid-item11{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#grid-item12{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#grid-item13{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#grid-item14{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#grid-item15{
-    background-color: rgba(255, 255, 255, 0.8);
+.tile-2048{
+    color: white;
+    background-color: #edc951;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
