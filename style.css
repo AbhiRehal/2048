@@ -2,7 +2,7 @@
     display: inline-grid;
     grid-template-columns: 80px 80px 80px 80px;
     grid-template-rows: 80px 80px 80px 80px;
-    background-color: black;
+    background-color: #bbada0;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     padding: 10px;
@@ -14,8 +14,8 @@ body{
 }
 
 .tile-0{
+    color: rgba(0, 0, 0, 0);
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
