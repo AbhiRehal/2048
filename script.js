@@ -79,30 +79,31 @@ document.querySelector(".grid-container").addEventListener("click", function(){
 document.addEventListener("keydown", move);
 
 function move(e){
+    let flatGame = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
     if (e.code === "ArrowUp"){
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
-        randomSpawnNumber();
+        validateMove(flatGame);
     } else if (e.code === "ArrowDown"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
         rotateGrid(gameBoard);
-        randomSpawnNumber();
+        validateMove(flatGame);
     } else if (e.code === "ArrowLeft"){
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
         rotateGrid(gameBoard);
         rotateGrid(gameBoard);
-        randomSpawnNumber();
+        validateMove(flatGame);
     } else if (e.code === "ArrowRight"){
         addRightwards(gameBoard);
-        randomSpawnNumber();
+        validateMove(flatGame);
     } else {
         console.log("Invalid key");
     }
@@ -110,7 +111,17 @@ function move(e){
     gameOver();
 }
 
-
+function validateMove(gamePreMove){
+    let flatGamePostMove = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
+        for (let i = 0; i < 16; i++){
+            if (gamePreMove[i] !== flatGamePostMove[i]){
+                randomSpawnNumber();
+                break;
+            } else if (i === 15 && gamePreMove[i] === flatGamePostMove[i]){
+                console.log("Move is invalid");
+            }
+        }
+}
 
 function gameOver(){
     let tempGameBoard1 = [], tempGameBoard2 = [], tempGameBoard3 = [], tempGameBoard4 = [];
