@@ -1,20 +1,16 @@
 'use strict';
 
 document.getElementsByClassName("box1").move = "black"
-
 let game = document.getElementsByClassName("grid");
 let randomNumberX = 0, randomNumberY = 0;
 
-let gameBoard = [[0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0]];
+let gameBoard = [   [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0]    ];
 
 randomSpawnNumber()
 randomSpawnNumber()
-
-gameOver();
-console.log(gameBoard);
 
 updateTiles();
 
@@ -76,11 +72,13 @@ function rotateGrid(arrayToRotate){
     }
 }
 
+document.querySelector(".grid-container").addEventListener("click", function(){
+    console.log("Clicked the grid bruh");
+});
 
 document.addEventListener("keydown", move);
 
 function move(e){
-    // gameOver();
     if (e.code === "ArrowUp"){
         rotateGrid(gameBoard);
         addRightwards(gameBoard);
@@ -109,49 +107,58 @@ function move(e){
         console.log("Invalid key");
     }
     updateTiles();
-    
+    gameOver();
 }
 
-document.querySelector(".grid-container").addEventListener("click", function(){
-    console.log("Clicked the grid bruh");
-});
+
 
 function gameOver(){
-    let temp1 = [...gameBoard];
-    let temp2 = [...gameBoard];
-    let temp3 = [...gameBoard];
-    let temp4 = [...gameBoard];
-    let temp5 = [...gameBoard];
+    let tempGameBoard1 = [], tempGameBoard2 = [], tempGameBoard3 = [], tempGameBoard4 = [];
+    for (let i = 0; i < gameBoard.length; i++){
+        tempGameBoard1[i] = gameBoard[i].slice();
+        tempGameBoard2[i] = gameBoard[i].slice();
+        tempGameBoard3[i] = gameBoard[i].slice();
+        tempGameBoard4[i] = gameBoard[i].slice();
+    }
     // checks up
-    rotateGrid(temp2);
-    addRightwards(temp2);
-    rotateGrid(temp2);
-    rotateGrid(temp2);
-    rotateGrid(temp2);
-    // checks down
-    rotateGrid(temp3);
-    rotateGrid(temp3);
-    rotateGrid(temp3);
-    addRightwards(temp3);
-    rotateGrid(temp3);
-    // checks left
-    rotateGrid(temp4);
-    rotateGrid(temp4);
-    addRightwards(temp4);
-    rotateGrid(temp4);
-    rotateGrid(temp4);
+    rotateGrid(tempGameBoard1);
+    addRightwards(tempGameBoard1);
+    rotateGrid(tempGameBoard1);
+    rotateGrid(tempGameBoard1);
+    rotateGrid(tempGameBoard1);
     // checks right
-    addRightwards(temp5);
-    if (temp1 ===  temp2 && temp1 === temp3 && temp1 === temp4 && temp1 === temp5){
-        console.log("GAME OVER");
-    } else {
-        console.log("GAME NOT OVER");
+    addRightwards(tempGameBoard2);
+    // checks downwards
+    rotateGrid(tempGameBoard3);
+    rotateGrid(tempGameBoard3);
+    rotateGrid(tempGameBoard3);
+    addRightwards(tempGameBoard3);
+    rotateGrid(tempGameBoard3);
+    // checks left
+    rotateGrid(tempGameBoard4);
+    rotateGrid(tempGameBoard4);
+    addRightwards(tempGameBoard4);
+    rotateGrid(tempGameBoard4);
+    rotateGrid(tempGameBoard4);
+
+    let flattenedGame = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
+    let flattenedTemp1 = [...tempGameBoard1[0], ...tempGameBoard1[1], ...tempGameBoard1[2], ...tempGameBoard1[3]];
+    let flattenedTemp2 = [...tempGameBoard2[0], ...tempGameBoard2[1], ...tempGameBoard2[2], ...tempGameBoard2[3]];
+    let flattenedTemp3 = [...tempGameBoard3[0], ...tempGameBoard3[1], ...tempGameBoard3[2], ...tempGameBoard3[3]];
+    let flattenedTemp4 = [...tempGameBoard4[0], ...tempGameBoard4[1], ...tempGameBoard4[2], ...tempGameBoard4[3]];
+
+    for (let i = 0; i < 16; i++){
+        if (flattenedGame[i] !== flattenedTemp1[i] || flattenedGame[i] !== flattenedTemp2[i] || flattenedGame[i] !== flattenedTemp3[i] || flattenedGame[i] !== flattenedTemp4[i]){
+            console.log("GAMES NOT OVER");
+            break;
+        } else if (i === 15  && (flattenedGame[i] === flattenedTemp1[i] || flattenedGame[i] === flattenedTemp2[i] || flattenedGame[i] === flattenedTemp3[i] || flattenedGame[i] === flattenedTemp4[i])){
+            console.log("GAMES OVER!! :(");
+        }
     }
 }
 
 function updateTiles(){
     let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
-    console.log(temp);
     for (let i = 0; i < temp.length; i++){
         let divElement = document.getElementById(`grid-item${i}`);
         divElement.innerHTML = temp[i];
