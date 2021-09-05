@@ -114,20 +114,167 @@ document.querySelector(".grid-container").addEventListener("click", function(){
 });
 
 function updateTiles(){
-    document.getElementById("grid-item0").innerHTML = gameBoard[0][0];
-    document.getElementById("grid-item1").innerHTML = gameBoard[0][1];
-    document.getElementById("grid-item2").innerHTML = gameBoard[0][2];
-    document.getElementById("grid-item3").innerHTML = gameBoard[0][3];
-    document.getElementById("grid-item4").innerHTML = gameBoard[1][0];
-    document.getElementById("grid-item5").innerHTML = gameBoard[1][1];
-    document.getElementById("grid-item6").innerHTML = gameBoard[1][2];
-    document.getElementById("grid-item7").innerHTML = gameBoard[1][3];
-    document.getElementById("grid-item8").innerHTML = gameBoard[2][0];
-    document.getElementById("grid-item9").innerHTML = gameBoard[2][1];
-    document.getElementById("grid-item10").innerHTML = gameBoard[2][2];
-    document.getElementById("grid-item11").innerHTML = gameBoard[2][3];
-    document.getElementById("grid-item12").innerHTML = gameBoard[3][0];
-    document.getElementById("grid-item13").innerHTML = gameBoard[3][1];
-    document.getElementById("grid-item14").innerHTML = gameBoard[3][2];
-    document.getElementById("grid-item15").innerHTML = gameBoard[3][3];
+    let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
+    console.log(temp);
+    for (let i = 0; i < temp.length; i++){
+        let divElement = document.getElementById(`grid-item${i}`);
+        divElement.innerHTML = temp[i];
+        if (temp[i] === 0){
+            divElement.classList.add("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 2){
+            divElement.classList.remove("tile-0")
+            divElement.classList.add("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 4){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.add("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 8){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.add("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 16){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.add("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 32){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.add("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 64){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.add("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 128){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.add("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 256){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.add("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 512){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.add("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 1024){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.add("tile-1024")
+            divElement.classList.remove("tile-2048")
+        } else if (temp[i] === 2048){
+            divElement.classList.remove("tile-0")
+            divElement.classList.remove("tile-2")
+            divElement.classList.remove("tile-4")
+            divElement.classList.remove("tile-8")
+            divElement.classList.remove("tile-16")
+            divElement.classList.remove("tile-32")
+            divElement.classList.remove("tile-64")
+            divElement.classList.remove("tile-128")
+            divElement.classList.remove("tile-256")
+            divElement.classList.remove("tile-512")
+            divElement.classList.remove("tile-1024")
+            divElement.classList.add("tile-2048")
+        }
+    }
 }
