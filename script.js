@@ -1,18 +1,20 @@
 'use strict';
 
-document.getElementsByClassName("box1").move = "black"
-let game = document.getElementsByClassName("grid");
-let randomNumberX = 0, randomNumberY = 0;
+let randomNumberX, randomNumberY, gameBoard;
 
-let gameBoard = [   [0, 0, 0, 0],
+initialize();
+
+function initialize(){
+    randomNumberX = 0, randomNumberY = 0;
+    gameBoard = [   [0, 0, 0, 0],
                     [0, 0, 0, 0],
                     [0, 0, 0, 0],
                     [0, 0, 0, 0]    ];
 
-randomSpawnNumber()
-randomSpawnNumber()
-
-updateTiles();
+    randomSpawnNumber();
+    randomSpawnNumber();
+    updateTiles();
+}
 
 function randomSpawnNumber(){
     let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]]
