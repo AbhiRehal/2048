@@ -1,7 +1,6 @@
 'use strict';
 
 let randomNumberX, randomNumberY, gameBoard;
-
 initialize();
 
 function initialize(){
@@ -74,9 +73,7 @@ function rotateGrid(arrayToRotate){
     }
 }
 
-document.querySelector(".grid-container").addEventListener("click", function(){
-    console.log("Clicked the grid bruh");
-});
+document.querySelector(".new-game-btn").addEventListener("click", initialize);
 
 document.addEventListener("keydown", move);
 
