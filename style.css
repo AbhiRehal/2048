@@ -1,5 +1,26 @@
+.wrapper{
+    display: inline-block;
+    height: 450px;
+}
+
+.game-name{
+    display: block;
+    font-size: 64px;
+    color: #80542b;
+    margin-left: 5px;
+}
+
+.new-game-btn{
+    color: white;
+    background-color: #bbada0;
+    border-radius: 5px;
+    margin-left: 50px;
+    font-size: 32px;
+    border-color: #80542b;
+}
+
 .grid-container{
-    display: inline-grid;
+    display: grid;
     grid-template-columns: 80px 80px 80px 80px;
     grid-template-rows: 80px 80px 80px 80px;
     background-color: #bbada0;
@@ -7,6 +28,7 @@
     grid-row-gap: 10px;
     padding: 10px;
     border-radius: 10px;
+    margin-top: 5px;
 }
 
 body{
@@ -24,7 +46,6 @@ body{
 
 .tile-2{
     background-color: #eee4da;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -33,7 +54,6 @@ body{
 
 .tile-4{
     background-color: #eee1c9;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -43,7 +63,6 @@ body{
 .tile-8{
     color: white;
     background-color: #f3b27a;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -53,7 +72,6 @@ body{
 .tile-16{
     color: white;
     background-color: #f69664;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -63,7 +81,6 @@ body{
 .tile-32{
     color: white;
     background-color: #f77c5f;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -73,7 +90,6 @@ body{
 .tile-64{
     color: white;
     background-color: #f75f3b;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -83,7 +99,6 @@ body{
 .tile-128{
     color: white;
     background-color: #edd073;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -93,7 +108,6 @@ body{
 .tile-256{
     color: white;
     background-color: #edd073;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -103,7 +117,6 @@ body{
 .tile-512{
     color: white;
     background-color: #edc950;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -113,7 +126,6 @@ body{
 .tile-1024{
     color: white;
     background-color: #edc950;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -123,7 +135,6 @@ body{
 .tile-2048{
     color: white;
     background-color: #edc951;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
