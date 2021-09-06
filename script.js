@@ -163,7 +163,7 @@ function gameOver(){
             break;
         } else if (i === 15  && (flattenedGame[i] === flattenedTemp1[i] || flattenedGame[i] === flattenedTemp2[i] || flattenedGame[i] === flattenedTemp3[i] || flattenedGame[i] === flattenedTemp4[i])){
             console.log("GAMES OVER!! :(");
-            window.confirm("Game over");
+            window.confirm('Game over, press the "New Game" button to start a new game.');
         }
     }
 }
