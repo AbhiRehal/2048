@@ -1,6 +1,11 @@
 'use strict';
 
+document.querySelector(".new-game-btn").addEventListener("click", initialize);
+
+document.addEventListener("keydown", move);
+
 let randomNumberX, randomNumberY, gameBoard;
+
 initialize();
 
 function initialize(){
@@ -73,9 +78,7 @@ function rotateGrid(arrayToRotate){
     }
 }
 
-document.querySelector(".new-game-btn").addEventListener("click", initialize);
 
-document.addEventListener("keydown", move);
 
 function move(e){
     let flatGame = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
