@@ -174,161 +174,41 @@ function updateTiles(){
         let divElement = document.getElementById(`grid-item${i}`);
         divElement.innerHTML = temp[i];
         if (temp[i] === 0){
-            divElement.classList.add("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-0");
         } else if (temp[i] === 2){
-            divElement.classList.remove("tile-0")
-            divElement.classList.add("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-2");
         } else if (temp[i] === 4){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.add("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-4");
         } else if (temp[i] === 8){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.add("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-8");
         } else if (temp[i] === 16){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.add("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-16");
         } else if (temp[i] === 32){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.add("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-32");
         } else if (temp[i] === 64){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.add("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-64");
         } else if (temp[i] === 128){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.add("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-128");
         } else if (temp[i] === 256){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.add("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-256");
         } else if (temp[i] === 512){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.add("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-512");
         } else if (temp[i] === 1024){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.add("tile-1024")
-            divElement.classList.remove("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-1024");
         } else if (temp[i] === 2048){
-            divElement.classList.remove("tile-0")
-            divElement.classList.remove("tile-2")
-            divElement.classList.remove("tile-4")
-            divElement.classList.remove("tile-8")
-            divElement.classList.remove("tile-16")
-            divElement.classList.remove("tile-32")
-            divElement.classList.remove("tile-64")
-            divElement.classList.remove("tile-128")
-            divElement.classList.remove("tile-256")
-            divElement.classList.remove("tile-512")
-            divElement.classList.remove("tile-1024")
-            divElement.classList.add("tile-2048")
+            document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
+            document.getElementById(`grid-item${i}`).classList.add("tile-2048");
         }
     }
 }
