@@ -8,6 +8,7 @@ let randomNumberX, randomNumberY, gameBoard;
 
 initialize();
 
+// Initializes the game
 function initialize(){
     randomNumberX = 0, randomNumberY = 0;
     gameBoard = [   [0, 0, 0, 0],
@@ -17,12 +18,17 @@ function initialize(){
 
     randomSpawnNumber();
     randomSpawnNumber();
+    // Sets the CSS elements of each tile
     updateTiles();
 }
 
+// Function spawns a random number in the grid
 function randomSpawnNumber(){
+    // Turns 4x4 grid into 1x16 array
     let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]]
     let flag = 1;
+    // Check that there is an empty element in the array
+    // Breaks if you find a zero, if you get to the end with no zero array is full
     for (let i = 0; i < temp.length; i++){
         if (temp[i] === 0){
             break;
@@ -30,13 +36,16 @@ function randomSpawnNumber(){
             flag = 0;
         }
     }
+    // If you get to here there is an open place to insert a new number
     if (flag){
         randomNumberX = Math.trunc(Math.random() * 4);
         randomNumberY = Math.trunc(Math.random() * 4);
+        // Find empty space to put new number in
         while (gameBoard[randomNumberX][randomNumberY] !== 0){
             randomNumberX = Math.trunc(Math.random() * 4);
             randomNumberY = Math.trunc(Math.random() * 4);
         }
+        // Spawns a "4 tile" 10% of the time else it spawns a "2 tile"
         let spawn4 = Math.random();
         if (spawn4 < 0.1){
             gameBoard[randomNumberX][randomNumberY] = 4;
@@ -46,15 +55,22 @@ function randomSpawnNumber(){
     }
 }
 
+// Function adds the array to the right in a destructive manner
 function addRightwards(arrayToAdd){
    for (let i = 0; i < 4; i++){
+       // Creates a 1x4 array which only contains non-zero elements
+       // Returned array can be < 4 long
        let tempArray = arrayToAdd[i].filter(num => num > 0);
+       // Prepends zeros to the 1x4 array to maintain the 1x4 size
        while (tempArray.length < 4){
            tempArray.unshift(0);
        }
+       // Adds from the RHS side
        for (let j = 3; j >= 1; j--){
            if (tempArray[j] === tempArray[j-1]){
+               // Sets the RHS element to 2x the original value
                tempArray[j] = tempArray[j] + tempArray[j-1]
+               // Removes the LHS value and prepends a zero to maintain 1x4 size
                tempArray.splice(j-1,1);
                tempArray.unshift(0)
            }
@@ -63,6 +79,7 @@ function addRightwards(arrayToAdd){
    }
 }
 
+// Each function call rotates the input array by 90 degrees clockwise
 function rotateGrid(arrayToRotate){
     const n = arrayToRotate.length;
     const x = Math.floor(n/2);
@@ -78,9 +95,10 @@ function rotateGrid(arrayToRotate){
     }
 }
 
-
-
+// Based on the input move, the array is rotated and then added to the right and then returned
+// to the original orientation
 function move(e){
+    // Turns 4x4 grid into 1x16 array
     let flatGame = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
     if (e.code === "ArrowUp"){
         rotateGrid(gameBoard);
@@ -110,9 +128,11 @@ function move(e){
         console.log("Invalid key");
     }
     updateTiles();
+    // Checks that the game is over
     gameOver();
 }
 
+// Validates that a move is allowed and spawns a number if so
 function validateMove(gamePreMove){
     let flatGamePostMove = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
         for (let i = 0; i < 16; i++){
@@ -125,8 +145,10 @@ function validateMove(gamePreMove){
         }
 }
 
+// Checking if the game is over
 function gameOver(){
     let tempGameBoard1 = [], tempGameBoard2 = [], tempGameBoard3 = [], tempGameBoard4 = [];
+    // Creates 4 game boards, 1 for each direction
     for (let i = 0; i < gameBoard.length; i++){
         tempGameBoard1[i] = gameBoard[i].slice();
         tempGameBoard2[i] = gameBoard[i].slice();
@@ -160,6 +182,8 @@ function gameOver(){
     let flattenedTemp3 = [...tempGameBoard3[0], ...tempGameBoard3[1], ...tempGameBoard3[2], ...tempGameBoard3[3]];
     let flattenedTemp4 = [...tempGameBoard4[0], ...tempGameBoard4[1], ...tempGameBoard4[2], ...tempGameBoard4[3]];
 
+    // Checks that all the gameboards are identical, if the gameboards are NOT identical
+    // the game is NOT over
     for (let i = 0; i < 16; i++){
         if (flattenedGame[i] !== flattenedTemp1[i] || flattenedGame[i] !== flattenedTemp2[i] || flattenedGame[i] !== flattenedTemp3[i] || flattenedGame[i] !== flattenedTemp4[i]){
             console.log("GAMES NOT OVER");
@@ -171,10 +195,13 @@ function gameOver(){
     }
 }
 
+// Updates the CSS elements of each tile by assigning the correct class name
 function updateTiles(){
     let temp = [...gameBoard[0], ...gameBoard[1], ...gameBoard[2], ...gameBoard[3]];
     for (let i = 0; i < temp.length; i++){
+        // Grabs the i'th tile in the HTML
         let divElement = document.getElementById(`grid-item${i}`);
+        // Sets the text of the HTML to the value in the gameboard
         divElement.innerHTML = temp[i];
         if (temp[i] === 0){
             document.getElementById(`grid-item${i}`).classList.remove(document.getElementById(`grid-item${i}`).classList.item(0));
